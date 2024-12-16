@@ -3,6 +3,7 @@ package com.example.appwithsomeapijava;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,14 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appwithsomeapijava.entity.Joke;
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,12 +22,14 @@ import retrofit2.http.GET;
 
 public class MainActivity extends AppCompatActivity {
 
-    interface RequestJoke{
+    interface RequestJoke {
         @GET("/joke/Any?type=twopart")
         Call<Joke> getJoke();
     }
 
     private Button buttonFind;
+    private TextView textView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         RequestJoke requestJoke = retrofit.create(RequestJoke.class);
 
         buttonFind = findViewById(R.id.buttonFind);
+        textView2 = findViewById(R.id.textView2);
         buttonFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Joke> call, Response<Joke> response) {
                         System.out.println(response.body());
+                        //response.body() - объект класса Joke, его нам и нужно сохранить в бд, можно даже отдельно две части.
+                        String str = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
+                        textView2.setText(str);
                     }
 
                     @Override

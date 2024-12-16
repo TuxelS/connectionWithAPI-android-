@@ -1,5 +1,7 @@
 package com.example.appwithsomeapijava.entity;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Map;
 
 public class Joke {
@@ -20,7 +22,7 @@ public class Joke {
     private String delivery;
 
     @JsonProperty("flags")
-    private Map<String,Boolean> flags;
+    private Map<String, Boolean> flags;
 
     @JsonProperty("id")
     private int id;
@@ -28,7 +30,11 @@ public class Joke {
     @JsonProperty("safe")
     private boolean safe;
 
-    public Joke(){};
+    public Joke() {
+    }
+
+    ;
+
     public Joke(boolean error, String category, String type, String setup, String delivery,
                 Map<String, Boolean> flags, int id, boolean safe, String lang) {
         this.error = error;
