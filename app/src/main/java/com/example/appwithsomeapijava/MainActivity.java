@@ -1,5 +1,6 @@
 package com.example.appwithsomeapijava;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonFind;
     private TextView textView2;
+    private MediaPlayer smex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://v2.jokeapi.dev")
                 .addConverterFactory(JacksonConverterFactory.create())
@@ -49,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
         buttonFind = findViewById(R.id.buttonFind);
         textView2 = findViewById(R.id.textView2);
+        smex = MediaPlayer.create(this , R.raw.joke);
         buttonFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 requestJoke.getJoke().enqueue(new Callback<Joke>() {
                     @Override
                     public void onResponse(Call<Joke> call, Response<Joke> response) {
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                         //response.body() - объект класса Joke, его нам и нужно сохранить в бд, можно даже отдельно две части.
                         String str = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
                         textView2.setText(str);
+                        smex.setVolume(100,100);
+                        smex.start();
                     }
 
                     @Override
