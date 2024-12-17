@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         //response.body() - объект класса Joke, его нам и нужно сохранить в бд, можно даже отдельно две части.
                         String str = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
                         textView2.setText(str);
-                        smex.setVolume(100,100);
+                        smex.setVolume(10,100);
                         smex.start();
                     }
 
