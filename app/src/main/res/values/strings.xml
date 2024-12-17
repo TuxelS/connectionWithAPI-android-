@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppWithSomeAPIJava</string>
+    <string name="Continue">Cont</string>
+    <string name="Back">Back</string>
 </resources>
