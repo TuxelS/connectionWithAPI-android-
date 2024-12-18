@@ -1,11 +1,14 @@
 package com.example.appwithsomeapijava;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,10 +43,24 @@ public class ReadActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.listView);
         listData = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, listData);
+        adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                listData
+        ) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView textView = (TextView) super.getView(position, convertView, parent);
+                textView.setTextSize(25); // Задайте размер текста
+                textView.setTextColor(Color.BLACK);//////
+                return textView;
+            }
+        };
+
         listView.setAdapter(adapter);
         mDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY);
     }
+
     private void getDataFromDB()
     {
         ValueEventListener vListener = new ValueEventListener() {

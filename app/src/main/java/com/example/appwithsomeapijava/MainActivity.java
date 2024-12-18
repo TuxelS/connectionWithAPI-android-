@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         Call<Joke> getJoke();
     }
     private DatabaseReference mDataBase;
-    private String USER_KEY = "User";
+    private String USER_KEY = "JOKE";
     private Button buttonFind;
     private TextView textView2;
     private MediaPlayer smex;
-    private  String str;
+    private  String jokeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         RequestJoke requestJoke = retrofit.create(RequestJoke.class);
 
-        buttonFind = findViewById(R.id.buttonFind);
-        textView2 = findViewById(R.id.textView2);
-        smex = MediaPlayer.create(this , R.raw.joke);
+        buttonFind = findViewById(R.id.btnTapIt);
+        textView2 = findViewById(R.id.jokeView);
+        smex = MediaPlayer.create(this , R.raw.joke_sound);
         buttonFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Joke> call, Response<Joke> response) {
                         System.out.println(response.body());
                         //response.body() - объект класса Joke, его нам и нужно сохранить в бд, можно даже отдельно две части.
-                        str = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
-                        textView2.setText(str);
+                        jokeText = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
+                        textView2.setText(jokeText);
                         smex.setVolume(10,100);
                         smex.start();
                     }
@@ -85,7 +85,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClickSave(View view)
     {
-    mDataBase.push().setValue(str);
+        if(!jokeText.isEmpty())
+        {
+            mDataBase.push().setValue(jokeText);
+        }
+        else{
+
+        }
     }
     public void onClickRead(View view)
     {

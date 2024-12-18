@@ -20,7 +20,7 @@ public class ShowActivity extends AppCompatActivity {
     }
     private void init()
     {
-        tvName = findViewById(R.id.tvName);
+        tvName = findViewById(R.id.jokeView1);
     }
     private void getIntentMain()
     {
