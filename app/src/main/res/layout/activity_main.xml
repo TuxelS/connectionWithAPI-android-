@@ -16,7 +16,7 @@
         android:background="@color/Logo_background"
         android:fontFamily="@font/gothic_a1_extrabold"
         android:gravity="center"
-        android:text="JokerAPI"
+        android:text="@string/logo_name"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,56 +24,66 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonFind"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnTapIt"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:backgroundTint="@color/Logo_background"
         android:fontFamily="@font/gothic_a1_extrabold"
-        android:text="Tap it"
-        android:textSize="30dp"
+        android:text="@string/TapIt"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
+        app:layout_constraintTop_toBottomOf="@+id/jokeView"
+        android:layout_marginTop="130dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        />
     <Button
-        android:id="@+id/buttonFind2"
-        android:layout_width="wrap_content"
-        android:fontFamily="@font/gothic_a1_black"
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
         android:backgroundTint="@color/Logo_background"
-        android:text="@string/Back"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonFind"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Button
-        android:id="@+id/buttonFind3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:backgroundTint="@color/Logo_background"
-        android:text="@string/Continue"
         android:fontFamily="@font/gothic_a1_black"
-        android:textSize="20sp"
+        android:onClick="onClickSave"
+        android:text="@string/save"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonFind"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTapIt"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"/>
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:backgroundTint="@color/Logo_background"
+        android:fontFamily="@font/gothic_a1_black"
+        android:onClick="onClickRead"
+        android:text="@string/saved_joke"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
+
+
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/jokeView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
         android:background="@drawable/ugli"
+        android:fontFamily="@font/gothic_a1_extrabold"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:gravity="center"
-        android:fontFamily="@font/gothic_a1_extrabold"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

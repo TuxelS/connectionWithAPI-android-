@@ -31,8 +31,7 @@ public class Joke {
     @JsonProperty("safe")
     private boolean safe;
 
-    public Joke() {
-    }
+    public Joke() {}
 
     ;
 

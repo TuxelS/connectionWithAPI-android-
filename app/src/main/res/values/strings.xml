@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">AppWithSomeAPIJava</string>
-    <string name="Continue">Cont</string>
-    <string name="Back">Back</string>
+    <string name="save">Save</string>
+    <string name="saved_joke">Save History</string>
+    <string name="logo_name">JokerAPI</string>
+    <string name="TapIt">Tap It!</string>
 </resources>
