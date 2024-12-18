@@ -1,5 +1,6 @@
 package com.example.appwithsomeapijava;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appwithsomeapijava.entity.Joke;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
         @GET("/joke/Any?type=twopart")
         Call<Joke> getJoke();
     }
-
+    private DatabaseReference mDataBase;
+    private String USER_KEY = "User";
     private Button buttonFind;
     private TextView textView2;
     private MediaPlayer smex;
+    private  String str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        mDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://v2.jokeapi.dev")
@@ -62,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Joke> call, Response<Joke> response) {
                         System.out.println(response.body());
                         //response.body() - объект класса Joke, его нам и нужно сохранить в бд, можно даже отдельно две части.
-                        String str = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
+                        str = "first part: " + response.body().getSetup() + "\n \n second part: " + response.body().getDelivery();
                         textView2.setText(str);
                         smex.setVolume(10,100);
                         smex.start();
@@ -76,7 +81,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
+    public void onClickSave(View view)
+    {
+    mDataBase.push().setValue(str);
+    }
+    public void onClickRead(View view)
+    {
+        Intent i = new Intent(MainActivity.this, ReadActivity.class);
+        startActivity(i);
+    }
+
 
 
 }
