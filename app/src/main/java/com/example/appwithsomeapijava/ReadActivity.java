@@ -30,7 +30,7 @@ public class ReadActivity extends AppCompatActivity {
     private List<String> listData;
 
     private DatabaseReference mDataBase;
-    private String USER_KEY = "User";
+    private String USER_KEY = "JOKE";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
