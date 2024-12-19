@@ -4,4 +4,5 @@
     <string name="saved_joke">Save History</string>
     <string name="logo_name">JokerAPI</string>
     <string name="TapIt">Tap It!</string>
+    <string name="History">Saved Joke</string>
 </resources>
