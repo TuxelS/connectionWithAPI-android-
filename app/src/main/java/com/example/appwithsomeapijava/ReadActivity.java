@@ -98,7 +98,6 @@ public class ReadActivity extends AppCompatActivity {
                 Intent i = new Intent(ReadActivity.this, ShowActivity.class);
                 i.putExtra(Constant.TEXT,user);
                 startActivity(i);
-
             }
         });
     }
