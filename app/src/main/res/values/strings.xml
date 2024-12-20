@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AppWithSomeAPIJava</string>
     <string name="save">Save</string>
-    <string name="saved_joke">Save History</string>
+    <string name="saved_joke">Saved History</string>
     <string name="logo_name">JokerAPI</string>
     <string name="TapIt">Tap It!</string>
-    <string name="History">Saved Joke</string>
+    <string name="History">Jokes History</string>
 </resources>
