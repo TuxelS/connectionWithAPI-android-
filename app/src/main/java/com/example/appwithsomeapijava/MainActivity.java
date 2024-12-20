@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-
+    public void onClickOut(View view){
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    }
 
 }

@@ -26,6 +26,7 @@
         <activity android:name="com.example.appwithsomeapijava.ReadActivity" />
         <activity android:name="com.example.appwithsomeapijava.ShowActivity" />
         <activity android:name="com.example.appwithsomeapijava.LoginActivity" />
+        <activity android:name="com.example.appwithsomeapijava.RegisterActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

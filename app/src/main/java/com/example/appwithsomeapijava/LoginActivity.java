@@ -49,4 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+    public  void onClickSign(View view){
+        startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+    }
 }
