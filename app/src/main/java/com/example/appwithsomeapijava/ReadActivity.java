@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appwithsomeapijava.entity.Constant;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +32,7 @@ public class ReadActivity extends AppCompatActivity {
     private List<String> listData;
 
     private DatabaseReference mDataBase;
-    private String USER_KEY = "JOKE";
+    private String USER_KEY = FirebaseAuth.getInstance().getCurrentUser().getUid();;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
