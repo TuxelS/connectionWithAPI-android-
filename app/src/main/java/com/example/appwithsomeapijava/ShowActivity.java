@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.appwithsomeapijava.entity.Constant;
 
 public class ShowActivity extends AppCompatActivity {
-    private TextView tvName, tvSecName, tvEmail;
+    private TextView tvName;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

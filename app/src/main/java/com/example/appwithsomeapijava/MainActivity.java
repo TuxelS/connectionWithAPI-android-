@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Call<Joke> getJoke();
     }
     private DatabaseReference mDataBase;
-    private String USER_KEY = "JOKE";
+    private String USER_KEY = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private Button buttonFind;
     private TextView textView2;
     private MediaPlayer smex;
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         if(!jokeText.isEmpty())
         {
             mDataBase.push().setValue(jokeText);
+            Toast.makeText(getApplicationContext(), "Joke saved", Toast.LENGTH_SHORT).show();
         }
         else{
 
